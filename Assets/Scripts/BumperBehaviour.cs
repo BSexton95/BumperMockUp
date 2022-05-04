@@ -11,6 +11,12 @@ public class BumperBehaviour : MonoBehaviour
     [SerializeField]
     private float _force;
 
+    public float Force
+    {
+        get { return _force; }
+        set { _force = value; }
+    }
+
     /// <summary>
     /// When object collides with the bumper, depending on direction and force 
     /// the ball has hit the bumper, will determine the amount of force needed to 
@@ -29,7 +35,7 @@ public class BumperBehaviour : MonoBehaviour
             //set the balls direction to always be on the x and z plane
             direction.y = 0;
             //multiply the direction and a force and add it to the balls rigidbody
-            ballRigidbody.AddForce(direction * _force);
+            ballRigidbody.AddForce(direction * Force);
         }
     }
 }
